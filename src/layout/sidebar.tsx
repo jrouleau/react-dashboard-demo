@@ -9,7 +9,7 @@ const StyledSidebar = styled.div`
   top: 0;
   left: 0;
   bottom: 0;
-  width: 25rem;
+  width: var(--sidebar-width);
   overflow-y: auto;
   background-color: orchid;
 `

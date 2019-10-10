@@ -7,9 +7,9 @@ import styled from 'styled-components'
 const StyledTopbar = styled.div`
   position: fixed;
   top: 0;
-  left: 25rem;
+  left: var(--sidebar-width);
   right: 0;
-  height: 5rem;
+  height: var(--topbar-height);
   background-color: blueviolet;
 `
 

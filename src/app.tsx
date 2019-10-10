@@ -8,14 +8,17 @@ import Topbar from './layout/topbar'
 
 /**********************************************************************/
 
-const StyledApp = styled.div``
+const StyledApp = styled.div`
+  --sidebar-width: 25rem;
+  --topbar-height: 5rem;
+`
 
 const Content = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding-top: 5rem;
-  margin-left: 25rem;
+  padding-top: var(--topbar-height);
+  margin-left: var(--sidebar-width);
 
   & > footer {
     margin-top: auto;
