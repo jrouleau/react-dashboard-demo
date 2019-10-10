@@ -12,6 +12,7 @@ const StyledSidebar = styled.div`
   width: var(--sidebar-width);
   overflow-y: auto;
   background-color: orchid;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
   transition: left 0.2s;
 
   .mobile & {
