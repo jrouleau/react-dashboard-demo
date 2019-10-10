@@ -7,11 +7,16 @@ import styled from 'styled-components'
 const StyledSidebar = styled.div`
   position: fixed;
   top: 0;
-  left: 0;
+  left: calc(-1 * var(--sidebar-width));
   bottom: 0;
   width: var(--sidebar-width);
   overflow-y: auto;
   background-color: orchid;
+  transition: left 0.2s;
+
+  .sidebar-active & {
+    left: 0;
+  }
 `
 
 /**********************************************************************/

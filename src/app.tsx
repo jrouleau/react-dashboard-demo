@@ -1,6 +1,7 @@
 import React from 'react'
 
 import styled from 'styled-components'
+import classNames from 'classnames'
 
 import Footer from './layout/footer'
 import Sidebar from './layout/sidebar'
@@ -18,7 +19,12 @@ const Content = styled.div`
   flex-direction: column;
   min-height: 100vh;
   padding-top: var(--topbar-height);
-  margin-left: var(--sidebar-width);
+  margin-left: 0;
+  transition: margin-left 0.2s;
+
+  .sidebar-active & {
+    margin-left: var(--sidebar-width);
+  }
 
   & > footer {
     margin-top: auto;
@@ -32,9 +38,19 @@ const Main = styled.main`
 /**********************************************************************/
 
 const App: React.FC = () => {
+  const [sidebarIsOpen, setSidebarIsOpen] = React.useState(true)
+
+  const toggleSidebar = () => {
+    setSidebarIsOpen((prev) => !prev)
+  }
+
+  const classes = classNames({
+    'sidebar-active': sidebarIsOpen,
+  })
+
   return (
-    <StyledApp>
-      <Topbar />
+    <StyledApp className={classes}>
+      <Topbar onToggleSidebar={toggleSidebar} />
       <Sidebar />
       <Content>
         <Main>

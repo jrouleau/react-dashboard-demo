@@ -7,13 +7,18 @@ import styled from 'styled-components'
 const StyledTopbar = styled.div`
   position: fixed;
   top: 0;
-  left: var(--sidebar-width);
+  left: 0;
   right: 0;
   height: var(--topbar-height);
   padding: 0 1.8rem;
   background-color: blueviolet;
   display: flex;
   align-items: center;
+  transition: left 0.2s;
+
+  .sidebar-active & {
+    left: var(--sidebar-width);
+  }
 `
 
 const MenuButton = styled.button`
@@ -29,10 +34,12 @@ const MenuButton = styled.button`
 
 /**********************************************************************/
 
-const Topbar: React.FC = () => {
+const Topbar: React.FC<{ onToggleSidebar: Function }> = ({
+  onToggleSidebar,
+}) => {
   return (
     <StyledTopbar>
-      <MenuButton className="p-link">
+      <MenuButton className="p-link" onClick={() => onToggleSidebar()}>
         <span className="pi pi-bars" />
       </MenuButton>
     </StyledTopbar>
