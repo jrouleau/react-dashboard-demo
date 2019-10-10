@@ -14,9 +14,12 @@ const StyledTopbar = styled.div`
   background-color: blueviolet;
   display: flex;
   align-items: center;
-  transition: left 0.2s;
 
-  .sidebar-active & {
+  .desktop & {
+    transition: left 0.2s;
+  }
+
+  .desktop.sidebar-active & {
     left: var(--sidebar-width);
   }
 `

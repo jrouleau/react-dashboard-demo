@@ -14,6 +14,10 @@ const StyledSidebar = styled.div`
   background-color: orchid;
   transition: left 0.2s;
 
+  .mobile & {
+    margin-top: var(--topbar-height);
+  }
+
   .sidebar-active & {
     left: 0;
   }
