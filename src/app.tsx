@@ -3,6 +3,8 @@ import React from 'react'
 import styled from 'styled-components'
 import classNames from 'classnames'
 
+import * as utils from './utils'
+
 import Footer from './layout/footer'
 import Sidebar from './layout/sidebar'
 import Topbar from './layout/topbar'
@@ -38,13 +40,20 @@ const Main = styled.main`
 /**********************************************************************/
 
 const App: React.FC = () => {
+  const [isMobile, setIsMobile] = React.useState(utils.isMobile())
   const [sidebarIsOpen, setSidebarIsOpen] = React.useState(true)
+
+  React.useEffect(() => {
+    window.addEventListener('resize', () => setIsMobile(utils.isMobile()))
+  }, [])
 
   const toggleSidebar = () => {
     setSidebarIsOpen((prev) => !prev)
   }
 
   const classes = classNames({
+    'mobile': isMobile,
+    'desktop': !isMobile,
     'sidebar-active': sidebarIsOpen,
   })
 
